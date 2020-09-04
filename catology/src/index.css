@@ -3,12 +3,13 @@
 	margin: 0 auto;
 }
 .app {
-	background: rgb(0, 255, 234);
+	background: rgb(38, 78, 74);
 	padding: 2rem;
 	font-family: 'Roboto', sans-serif;
 	height: 100vh;
 }
 .text {
+	color: white;
 	padding: 1.5rem;
 	text-align: center;
 }
@@ -17,4 +18,18 @@ h1 {
 }
 .select {
 	width: 70%;
+}
+.result {
+	height: 100%;
+	width: 100%;
+	padding: 2rem;
+	margin: 2rem;
+	text-align: center;
+	background: orange;
+}
+
+.result img {
+	width: 400px;
+	height: 250px;
+	padding: 20px;
 }
