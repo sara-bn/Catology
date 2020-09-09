@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import { ValueType, ActionMeta } from 'react-select/src/types.js';
 import axios from 'axios';
-import CatObject from './CatObject';
 import { Cat } from '../Cat.model';
+import { Link } from 'react-router-dom';
 
 interface Breed {
 	value: string;
@@ -41,11 +41,17 @@ const SelectOptions: React.FC = () => {
 		displayBreedOptions();
 	}, []);
 	return (
-		<div>
-			<div className="select">
-				<Select name="breeds" options={breeds} onChange={displayResult}></Select>
+		<div className="main">
+			<div className="text">
+				<h1>Cat World</h1>
+				<h3>Please select the breed</h3>
 			</div>
-			<CatObject cat={catObject} />
+			<Select name="breeds" options={breeds} onChange={displayResult}></Select>
+			<div className="result">
+				<Link to={'/cats/' + catObject.url} key={catObject.url}>
+					<img src={catObject.url} alt="cat"></img>
+				</Link>
+			</div>
 		</div>
 	);
 };

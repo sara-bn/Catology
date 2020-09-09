@@ -1,0 +1,19 @@
+{
+	"cats": [
+		{
+			"id": 1,
+			"origin": "United States",
+			"breed": "Bengal"
+		},
+		{
+			"id": 2,
+			"origin": "United Kingdom",
+			"breed": "Burmilla"
+		},
+		{
+			"id": 3,
+			"origin": "France",
+			"breed": "Chartreux"
+		}
+	]
+}
