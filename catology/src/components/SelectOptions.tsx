@@ -34,6 +34,7 @@ const SelectOptions: React.FC = () => {
 		setBreedId(selectedBreed.value);
 		const response = await axios.get<Cat[]>(`${BASE_URL}images/search?breed_ids=${breedId}`);
 		const final = response.data[0];
+		console.log(final)
 		setCatObject(final);
 	};
 
