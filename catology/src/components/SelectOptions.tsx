@@ -19,7 +19,7 @@ const BASE_URL = 'https://api.thecatapi.com/v1/';
 const SelectOptions: React.FC = () => {
 	const [breeds, setBreeds] = useState<Breed[]>([]);
 	const [breedId, setBreedId] = useState<string>('');
-	const [catObject, setCatObject] = useState<Cat>({ breeds: [], id: '', url: '', width: 0, height: 0 });
+	const [catObject, setCatObject] = useState<Cat>({id: '', url: ''});
 
 	async function displayBreedOptions() {
 		const response = await axios.get<BreedApiResponse[]>(BASE_URL + 'breeds');
@@ -48,11 +48,14 @@ const SelectOptions: React.FC = () => {
 				<h3>Please select the breed</h3>
 			</div>
 			<Select name="breeds" options={breeds} onChange={displayResult}></Select>
-			<div className="result">
-				<Link to={'/cats/' + catObject.url} key={catObject.url}>
-					<img src={catObject.url} alt="cat"></img>
-				</Link>
-			</div>
+				{catObject.url.length>1 &&
+				<div className="result">
+					<Link to={{pathname:'/cats/' , state:{imgUrl:catObject.url}}}>
+						<img src={catObject.url} alt="cat"></img>
+				   </Link>
+			    </div>
+				}
+
 		</div>
 	);
 };
