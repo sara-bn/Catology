@@ -34,7 +34,6 @@ const SelectOptions: React.FC = () => {
 		setBreedId(selectedBreed.value);
 		const response = await axios.get<Cat[]>(`${BASE_URL}images/search?breed_ids=${breedId}`);
 		const final = response.data[0];
-		console.log(final)
 		setCatObject(final);
 	};
 
@@ -47,11 +46,11 @@ const SelectOptions: React.FC = () => {
 				<h1>Cat World</h1>
 				<h3>Please select the breed</h3>
 			</div>
-			<Select name="breeds" options={breeds} onChange={displayResult}></Select>
+			<Select className="select" name="breeds" options={breeds} onChange={displayResult}></Select>
 				{catObject.url.length>1 &&
 				<div className="result">
 					<Link to={{pathname:'/cats/' , state:{imgUrl:catObject.url}}}>
-						<img src={catObject.url} alt="cat"></img>
+						<img className="select-result" src={catObject.url} alt="cat"></img>
 				   </Link>
 			    </div>
 				}

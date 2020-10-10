@@ -26,16 +26,38 @@ h1 {
 	background: orange;
 }
 
-img {
-	width: 400px;
-	height: 250px;
+.select-result {
+	width: 500px;
+	height: 350px;
 	padding: 20px;
 	margin: 0 auto;
 }
 
 .main {
 	height: 100vh;
-	padding: 2rem;
+	padding: 3rem;
 	text-align: center;
 	background: orange;
+}
+.input {
+	padding: 2rem;
+}
+.input-text {
+	border-radius: 10px;
+	padding: 0.5rem;
+	width: 50%;
+}
+.meme-text {
+	font-size: 2.5rem;
+	font-weight: bold;
+	font-family: white;
+}
+.meme {
+	padding: 1.5rem;
+}
+
+.download-button {
+	background-color: rgb(38, 78, 74);
+	color: white;
+	padding: 0.5rem;
 }
