@@ -65,8 +65,13 @@ class SelectOptions extends React.Component<any, IState> {
 				<h1>Cat World</h1>
 				<h3>Please select the breed</h3>
 			</div>
-			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult} ></Select>
-			<img className="select-result" src={this.state.catObj.url} alt="cat"></img>
+			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult}></Select>
+			{this.state.catObj.url.length>1 &&
+				<div className="result">
+					<Link to={{pathname:'/cats/' , state:{imgUrl:this.state.catObj.url}}}>
+						<img className="select-result" src={this.state.catObj.url} alt="cat"></img>
+				   </Link> 
+		</div>}
 		</div>
 		)
 	}
