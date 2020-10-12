@@ -32,9 +32,9 @@ const CatObject: React.FC = (props:any) => {
 			<input className="input-text" type="text" value={meme} onChange={(e: React.FormEvent<HTMLInputElement>)=>setMeme(e.currentTarget.value)}></input>
 			</div>			
 			<div className="meme">
-			<svg id="svg"width="400" height="250" xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink">       
-               <image href={imgUrl} />
+			<svg id="svg" width="600" height="400" xmlns="http://www.w3.org/2000/svg"
+              >       
+               <image href={imgUrl} width="600" height="400"  />
 			   <text className="meme-text" x="50%" y="90%" dominant-baseline="middle" text-anchor="middle">{meme}</text>  
             </svg>
 			</div>
