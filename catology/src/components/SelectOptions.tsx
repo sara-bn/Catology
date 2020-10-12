@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Select from 'react-select';
-import { ValueType, ActionMeta } from 'react-select/src/types.js';
+import { ValueType} from 'react-select/src/types.js';
 import axios from 'axios';
 import { Cat } from '../Cat.model';
 import { Link } from 'react-router-dom';
@@ -10,53 +10,66 @@ interface Breed {
 	label: string;
 }
 
+interface IState {
+	BreedArray: Breed[];
+	breedId:string,
+	catObj:Cat
+}
+
 interface BreedApiResponse {
 	name: string;
 	id: string;
 }
 
 const BASE_URL = 'https://api.thecatapi.com/v1/';
-const SelectOptions: React.FC = () => {
-	const [breeds, setBreeds] = useState<Breed[]>([]);
-	const [breedId, setBreedId] = useState<string>('');
-	const [catObject, setCatObject] = useState<Cat>({id: '', url: ''});
 
-	async function displayBreedOptions() {
-		const response = await axios.get<BreedApiResponse[]>(BASE_URL + 'breeds');
-		const newCategories = response.data;
-		const selectorOptions: Breed[] = newCategories.map((category) => {
-			return { value: category.id, label: category.name };
-		});
-		setBreeds(selectorOptions);
-	}
-	const displayResult = async (newValue: ValueType<Breed>, actionMeta: ActionMeta<Breed>) => {
-		const selectedBreed = newValue as Breed;
-		setBreedId(selectedBreed.value);
-		const response = await axios.get<Cat[]>(`${BASE_URL}images/search?breed_ids=${breedId}`);
-		const final = response.data[0];
-		setCatObject(final);
+class SelectOptions extends React.Component<any, IState> {
+	constructor(props: any){
+		super(props);
+		this.state = {
+			BreedArray:[{value:'', label:''}],	
+			breedId:'',
+			catObj: {id:'', url:''}	
+	  };
 	};
+	   componentDidMount(){
+	   this.displayBreedOptions();
+	  };
 
-	useEffect(() => {
-		displayBreedOptions();
-	}, []);
-	return (
+	  displayBreedOptions = async()=>{
+	  const response = await axios.get<BreedApiResponse[]>(BASE_URL + 'breeds');
+	  const newCategories = response.data;
+	  const selectorOptions: any[] = newCategories.map((category) => {
+		  return { value: category.id, label: category.name };
+	  });
+	  this.setState({BreedArray:selectorOptions})	
+	}
+
+	displayResult = (newValue: ValueType<Breed>)=>{
+		const selectedBreed = newValue as Breed;
+		this.setState({breedId:selectedBreed.value}, () =>{		 
+			this.fetchCatResult()
+		});
+	}
+
+	fetchCatResult= async()=>{
+	    const anotherResponse = await axios.get(`${BASE_URL}images/search?breed_ids=${this.state.breedId}`);
+		const final = anotherResponse.data[0];
+		this.setState({catObj:final});
+	  }
+	  	
+	render(){
+		return(
 		<div className="main">
 			<div className="text">
 				<h1>Cat World</h1>
 				<h3>Please select the breed</h3>
 			</div>
-			<Select className="select" name="breeds" options={breeds} onChange={displayResult}></Select>
-				{catObject.url.length>1 &&
-				<div className="result">
-					<Link to={{pathname:'/cats/' , state:{imgUrl:catObject.url}}}>
-						<img className="select-result" src={catObject.url} alt="cat"></img>
-				   </Link>
-			    </div>
-				}
-
+			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult} ></Select>
+			<img className="select-result" src={this.state.catObj.url} alt="cat"></img>
 		</div>
-	);
-};
+		)
+	}
 
+}
 export default SelectOptions;
