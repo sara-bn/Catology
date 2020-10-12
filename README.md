@@ -1,2 +1,3 @@
 # Catology
-React app using typescript and CatAPI (https://thecatapi.com/) to display data about cats.
+This application usues CatAPI (https://thecatapi.com/) to display random Cat image from selected breed. Then you can generate meme and dowonload it.
+Technology: React TypeScript
