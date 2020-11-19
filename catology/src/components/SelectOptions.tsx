@@ -29,7 +29,7 @@ class SelectOptions extends React.Component<any, IState> {
 		this.state = {
 			BreedArray:[{value:'', label:''}],	
 			breedId:'',
-			catObj: {id:'', url:''}	
+			catObj: {id:'', url:'', breeds:[]}	
 	  };
 	};
 	   componentDidMount(){
@@ -56,6 +56,7 @@ class SelectOptions extends React.Component<any, IState> {
 	    const anotherResponse = await axios.get(`${BASE_URL}images/search?breed_ids=${this.state.breedId}`);
 		const final = anotherResponse.data[0];
 		this.setState({catObj:final});
+		console.log(this.state.catObj)
 	  }
 	  	
 	render(){
@@ -68,6 +69,7 @@ class SelectOptions extends React.Component<any, IState> {
 			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult}></Select>
 			{this.state.catObj.url.length>1 &&
 				<div className="result">
+					<p>{this.state.catObj.breeds[0].life_span}</p>
 					<Link to={{pathname:'/cats/' , state:{imgUrl:this.state.catObj.url}}}>
 						<img className="select-result" src={this.state.catObj.url} alt="cat"></img>
 				   </Link> 

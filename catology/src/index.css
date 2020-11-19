@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Luckiest+Guy&display=swap');
 * {
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -5,7 +6,7 @@
 .main {
 	background: rgb(38, 78, 74);
 	padding: 2rem;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Baloo 2', cursive;
 	height: 100vh;
 }
 .text {
@@ -15,15 +16,15 @@
 }
 h1 {
 	padding: 1rem;
+	font-family: 'Luckiest Guy', cursive;
 }
 .select {
-	width: 70%;
+	width: 40%;
 }
 .result {
 	padding: 2rem;
 	margin: 2rem;
 	text-align: center;
-	background: orange;
 }
 
 .select-result {
@@ -37,7 +38,7 @@ h1 {
 	height: 100vh;
 	padding: 3rem;
 	text-align: center;
-	background: orange;
+	background: rgb(0, 83, 138);
 }
 .input {
 	padding: 2rem;

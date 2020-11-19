@@ -1,4 +1,17 @@
 export interface Cat {
 	id: string;
 	url: string;
+	breeds: info[];
+}
+export interface info{
+	origin:string;
+	description:string;
+	life_span:string;
+	wikipedia_url: string;
+	adaptability: number;
+	affection_level: number;
+	energy_level: number;
+	hairless: number;
+	hypoallergenic: number;
+	vocalisation:number;
 }
