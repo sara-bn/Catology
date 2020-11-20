@@ -14,37 +14,37 @@ const CatBreedInfo: React.FC = (props:any) => {
 	const [favorite, setFavorite] = useState(false);
 	const theme = createMuiTheme({
 		typography: {
-		fontSize: 22,
+		fontSize: 18,
 		fontFamily: [
 			'Baloo 2',
 			'cursive',
 		].join(','),
 		},});
 
-	const addToFavorite = () =>{
-		setFavorite(!favorite);
+	const addToFavorite = () => {
+		setFavorite(true);
 		const favorites =JSON.parse(localStorage.getItem('catPhotos')!)|| [];
-		favorites.push(catUrl);
-		console.log(favorites);
-		localStorage.setItem('catPhotos',JSON.stringify(favorites));
+		favorites.push({url:catUrl,name:breedInfo.name});
+		localStorage.setItem('catPhotos',JSON.stringify(favorites))
 	}
 
 
 	return (
 		<div className="result-container">
 			<div className="text">
-				<FontAwesomeIcon icon={faPaw} size="2x" color="orange"/>
+			<FontAwesomeIcon icon={faPaw} size="2x" color="orange"/>
+				<a href="/Favorite-List">Your Favorite List</a>
 				<h1>{breedInfo.name}</h1>
+				<FontAwesomeIcon className="heart" onClick={addToFavorite} icon={ favorite ? faSolideHeart: faRegularHeart} size="2x" color="red"/>
 			</div>
 			<ThemeProvider theme={theme}>
-			<Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ fontFamily: 'Luckiest Guy' }}>
-				<Grid item>
+			<Grid container spacing={0} style={{ fontFamily: 'Luckiest Guy'}}>
+				<Grid item md={12} lg={6}>
 				<div className="img-container">
 				<img className="select-result" src={catUrl} alt="selected-cat"></img>
-				<FontAwesomeIcon className="heart" onClick={addToFavorite} icon={ favorite ? faSolideHeart: faRegularHeart} size="3x" color="red"/>
 				</div>
 				</Grid>
-				<Grid item style={{ width: "60%" }}>
+				<Grid item md={12} lg={6}>
 					<InfoTable {...props}/>
 				</Grid>
 			</Grid>

@@ -32,7 +32,7 @@ h1 {
 }
 
 .link {
-	text-decoration: 'none';
+	text-decoration: 'none' !important;
 	text-align: 'center';
 	font-size: 24px;
 }
@@ -55,16 +55,16 @@ h1 {
 	padding: 4rem;
 }
 .img-container {
-	position: relative;
 	text-align: center;
-	color: white;
 }
 .heart {
-	position: absolute;
 	bottom: 30px;
 	left: 30px;
 }
 .text a {
 	color: rgb(255, 123, 0);
 	text-decoration: none;
+}
+.list-images {
+	padding: 6rem;
 }

@@ -1,3 +1,3 @@
 # Catology
-This application uses CatAPI (https://thecatapi.com/) to generate a dropdown menu including different cat breeds. By selecting a breed, some data and a random image from the selected breed will be displayed. You can create a list of your favorite images.
-### Technology: React (TypeScript)
+This application usues CatAPI (https://thecatapi.com/) to display random Cat image from selected breed. Then you can generate meme and dowonload it.
+### Technology: React TypeScript
