@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Cat } from '../Cat.model';
 import { Link } from 'react-router-dom';
 
+
 interface Breed {
 	value: string;
 	label: string;
@@ -30,19 +31,19 @@ class SelectOptions extends React.Component<any, IState> {
 			BreedArray:[{value:'', label:''}],	
 			breedId:'',
 			catObj: {id:'', url:'', breeds:[]}	
-	  };
 	};
-	   componentDidMount(){
-	   this.displayBreedOptions();
-	  };
+	};
+	componentDidMount(){
+	this.displayBreedOptions();
+	};
 
-	  displayBreedOptions = async()=>{
-	  const response = await axios.get<BreedApiResponse[]>(BASE_URL + 'breeds');
-	  const newCategories = response.data;
-	  const selectorOptions: any[] = newCategories.map((category) => {
-		  return { value: category.id, label: category.name };
-	  });
-	  this.setState({BreedArray:selectorOptions})	
+	displayBreedOptions = async()=>{
+	const response = await axios.get<BreedApiResponse[]>(BASE_URL + 'breeds');
+	const newCategories = response.data;
+	const selectorOptions: any[] = newCategories.map((category) => {
+		return { value: category.id, label: category.name };
+	});
+	this.setState({BreedArray:selectorOptions})	
 	}
 
 	displayResult = (newValue: ValueType<Breed>)=>{
@@ -53,12 +54,12 @@ class SelectOptions extends React.Component<any, IState> {
 	}
 
 	fetchCatResult= async()=>{
-	    const anotherResponse = await axios.get(`${BASE_URL}images/search?breed_ids=${this.state.breedId}`);
+	const anotherResponse = await axios.get(`${BASE_URL}images/search?breed_ids=${this.state.breedId}`);
 		const final = anotherResponse.data[0];
 		this.setState({catObj:final});
 		console.log(this.state.catObj)
-	  }
-	  	
+	}
+	
 	render(){
 		return(
 		<div className="main">
@@ -69,14 +70,14 @@ class SelectOptions extends React.Component<any, IState> {
 			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult}></Select>
 			{this.state.catObj.url.length>1 &&
 				<div className="result">
-					<p>{this.state.catObj.breeds[0].life_span}</p>
-					<Link to={{pathname:'/cats/' , state:{imgUrl:this.state.catObj.url}}}>
-						<img className="select-result" src={this.state.catObj.url} alt="cat"></img>
-				   </Link> 
+					<img className="select-result" src={this.state.catObj.url} alt="selected-cat"></img>
+					<Link to={{pathname:'/breed-info' , state:{cat:this.state.catObj}}}
+					style={{ textDecoration: 'none', color: 'white' }}>
+						Learn More 
+				</Link> 
 		</div>}
 		</div>
 		)
 	}
-
 }
 export default SelectOptions;

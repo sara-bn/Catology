@@ -1,10 +1,10 @@
 export interface Cat {
 	id: string;
 	url: string;
-	breeds: info[];
+	breeds: Info[];
 }
-export interface info{
-	origin:string;
+export interface Info{
+	country_code:string;
 	description:string;
 	life_span:string;
 	wikipedia_url: string;
