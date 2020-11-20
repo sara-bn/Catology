@@ -4,7 +4,8 @@ export interface Cat {
 	breeds: Info[];
 }
 export interface Info{
-	country_code:string;
+	name:string;
+	origin:string;
 	description:string;
 	life_span:string;
 	wikipedia_url: string;

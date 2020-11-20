@@ -4,6 +4,8 @@ import { ValueType} from 'react-select/src/types.js';
 import axios from 'axios';
 import { Cat } from '../Cat.model';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 
 interface Breed {
@@ -57,7 +59,6 @@ class SelectOptions extends React.Component<any, IState> {
 	const anotherResponse = await axios.get(`${BASE_URL}images/search?breed_ids=${this.state.breedId}`);
 		const final = anotherResponse.data[0];
 		this.setState({catObj:final});
-		console.log(this.state.catObj)
 	}
 	
 	render(){
@@ -65,15 +66,18 @@ class SelectOptions extends React.Component<any, IState> {
 		<div className="main">
 			<div className="text">
 				<h1>Cat World</h1>
+				<FontAwesomeIcon icon={faPaw} size="2x" color="orange"/>
+				<a href="/Favorite-List">Your Favorite List</a>
 				<h3>Please select the breed</h3>
 			</div>
 			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult}></Select>
 			{this.state.catObj.url.length>1 &&
 				<div className="result">
 					<img className="select-result" src={this.state.catObj.url} alt="selected-cat"></img>
-					<Link to={{pathname:'/breed-info' , state:{cat:this.state.catObj}}}
-					style={{ textDecoration: 'none', color: 'white' }}>
-						Learn More 
+					<br/>
+					<Link className="link" to={{pathname:'/breed-info' , state:{cat:this.state.catObj}}}
+					>
+						Learn More about {this.state.catObj.breeds[0].name}
 				</Link> 
 		</div>}
 		</div>
