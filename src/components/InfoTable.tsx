@@ -14,7 +14,7 @@ const InfoTable: React.FC = (props:any) => {
     const breedInfo:Info = props.location.state.cat.breeds[0];
     const StyledRating = withStyles({
         iconFilled: {
-        color:  "rgb(255, 123, 0)",
+        color:  "rgb(255, 81, 0)",
         },
     })(Rating);
 

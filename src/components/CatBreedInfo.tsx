@@ -14,7 +14,7 @@ const CatBreedInfo: React.FC = (props:any) => {
 	const [favorite, setFavorite] = useState(false);
 	const theme = createMuiTheme({
 		typography: {
-		fontSize: 18,
+		fontSize: 24,
 		fontFamily: [
 			'Baloo 2',
 			'cursive',
@@ -24,15 +24,17 @@ const CatBreedInfo: React.FC = (props:any) => {
 	const addToFavorite = () => {
 		setFavorite(true);
 		const favorites =JSON.parse(localStorage.getItem('catPhotos')!)|| [];
-		favorites.push({url:catUrl,name:breedInfo.name});
-		localStorage.setItem('catPhotos',JSON.stringify(favorites))
+			if (!favorites.find( (cat: { url: string; }) => cat.url === catUrl)){
+				favorites.push({url:catUrl,name:breedInfo.name});
+				localStorage.setItem('catPhotos',JSON.stringify(favorites))
+			}
 	}
 
 
 	return (
 		<div className="result-container">
 			<div className="text">
-			<FontAwesomeIcon icon={faPaw} size="2x" color="orange"/>
+			<FontAwesomeIcon icon={faPaw} size="3x" color="rgb(255, 123, 0)"/>
 				<a href="/Favorite-List">Your Favorite List</a>
 				<h1>{breedInfo.name}</h1>
 				<FontAwesomeIcon className="heart" onClick={addToFavorite} icon={ favorite ? faSolideHeart: faRegularHeart} size="2x" color="red"/>

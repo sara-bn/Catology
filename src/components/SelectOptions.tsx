@@ -65,8 +65,8 @@ class SelectOptions extends React.Component<any, IState> {
 		return(
 		<div className="main">
 			<div className="text">
-				<h1>Cat World</h1>
-				<FontAwesomeIcon icon={faPaw} size="2x" color="orange"/>
+				<h1 className="title">Cat World</h1>
+				<FontAwesomeIcon icon={faPaw} size="3x" color="rgb(255, 123, 0)"/>
 				<a href="/Favorite-List">Your Favorite List</a>
 				<h3>Please select the breed</h3>
 			</div>

@@ -4,37 +4,49 @@
 	margin: 0 auto;
 	font-family: 'Baloo 2', cursive;
 }
+body {
+	background: rgb(255, 228, 74);
+}
 .main {
-	background: rgb(137, 219, 141);
-	padding: 2rem;
-	height: 100vh;
+	padding: 6rem;
+	height: 100%;
 }
 .text {
-	padding: 1.5rem;
+	padding: 2rem;
 	text-align: center;
 	font-size: 24px;
-	color: rgb(21, 78, 21);
+	color: rgb(47, 112, 4);
 }
 h1 {
 	padding: 1rem;
 	font-family: 'Luckiest Guy', cursive;
 	text-align: center;
-	font-size: 48px;
-	color: rgb(21, 78, 21);
+	font-size: 4rem;
+	color: rgb(0, 168, 42);
+}
+h3 {
+	padding: 1rem;
 }
 .select {
-	width: 40%;
+	width: 50%;
+	font-size: 1.5rem;
+}
+.css-yk16xz-control {
+	padding: 1rem;
 }
 .result {
 	padding: 2rem;
 	margin: 2rem;
 	text-align: center;
 }
-
-.link {
-	text-decoration: 'none' !important;
+table {
+	color: white !important;
+}
+a {
+	text-decoration: 'none';
 	text-align: 'center';
-	font-size: 24px;
+	font-size: 2rem;
+	color: rgb(19, 133, 53);
 }
 
 .select-result {
@@ -51,7 +63,7 @@ h1 {
 	padding: 2rem;
 }
 .result-container {
-	background: rgb(137, 219, 141);
+	color: white;
 	padding: 4rem;
 }
 .img-container {
@@ -62,7 +74,7 @@ h1 {
 	left: 30px;
 }
 .text a {
-	color: rgb(255, 123, 0);
+	color: rgb(255, 81, 0);
 	text-decoration: none;
 }
 .list-images {
