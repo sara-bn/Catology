@@ -8,13 +8,12 @@ import { faHeart as faSolideHeart, faPaw } from '@fortawesome/free-solid-svg-ico
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 
 const CatBreedInfo: React.FC = (props:any) => {
-
 	const catUrl:string = props.location.state.cat.url;
 	const breedInfo:Info = props.location.state.cat.breeds[0];
 	const [favorite, setFavorite] = useState(false);
 	const theme = createMuiTheme({
 		typography: {
-		fontSize: 24,
+		fontSize: 18,
 		fontFamily: [
 			'Baloo 2',
 			'cursive',
@@ -29,7 +28,6 @@ const CatBreedInfo: React.FC = (props:any) => {
 				localStorage.setItem('catPhotos',JSON.stringify(favorites))
 			}
 	}
-
 
 	return (
 		<div className="result-container">

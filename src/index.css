@@ -6,37 +6,38 @@
 }
 body {
 	background: rgb(255, 228, 74);
+	width: 100%;
 }
 .main {
-	padding: 6rem;
+	padding: 2rem;
 	height: 100%;
+	width: 100%;
+	max-width: 900px;
 }
 .text {
-	padding: 2rem;
+	padding: 1rem;
 	text-align: center;
-	font-size: 24px;
 	color: rgb(47, 112, 4);
 }
 h1 {
 	padding: 1rem;
 	font-family: 'Luckiest Guy', cursive;
 	text-align: center;
-	font-size: 4rem;
+	font-size: 2rem;
 	color: rgb(0, 168, 42);
 }
 h3 {
-	padding: 1rem;
+	padding: 0.5rem;
 }
 .select {
-	width: 50%;
-	font-size: 1.5rem;
+	width: 70%;
+	font-size: 1rem;
 }
 .css-yk16xz-control {
 	padding: 1rem;
 }
 .result {
 	padding: 2rem;
-	margin: 2rem;
 	text-align: center;
 }
 table {
@@ -50,9 +51,9 @@ a {
 }
 
 .select-result {
-	width: 500px;
-	height: 350px;
-	padding: 20px;
+	width: 450px;
+	height: 300px;
+	padding: 1rem;
 	margin: 0 auto;
 	border: 0.5px solid #004e37;
 	border-radius: 30px;
@@ -64,7 +65,7 @@ a {
 }
 .result-container {
 	color: white;
-	padding: 4rem;
+	padding: 2rem;
 }
 .img-container {
 	text-align: center;
