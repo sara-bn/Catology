@@ -5,79 +5,81 @@
 	font-family: 'Baloo 2', cursive;
 }
 body {
-	background: rgb(255, 228, 74);
+	background: rgb(137, 23, 202);
 	width: 100%;
+	text-align: center;
 }
 .main {
-	padding: 2rem;
+	padding-top: 6rem;
 	height: 100%;
 	width: 100%;
 	max-width: 900px;
 }
 .text {
 	padding: 1rem;
-	text-align: center;
-	color: rgb(47, 112, 4);
 }
 h1 {
 	padding: 1rem;
 	font-family: 'Luckiest Guy', cursive;
 	text-align: center;
-	font-size: 2rem;
-	color: rgb(0, 168, 42);
+	font-size: 3rem;
+	color: rgb(7, 206, 56);
 }
 h3 {
 	padding: 0.5rem;
-}
-.select {
-	width: 70%;
-	font-size: 1rem;
+	color: rgb(7, 206, 56);
+	font-size: 1.5rem;
 }
 .css-yk16xz-control {
 	padding: 1rem;
 }
-.result {
-	padding: 2rem;
-	text-align: center;
-}
-table {
-	color: white !important;
-}
+
 a {
-	text-decoration: 'none';
-	text-align: 'center';
-	font-size: 2rem;
-	color: rgb(19, 133, 53);
+	text-decoration: none;
+	font-size: 1rem;
+	color: rgb(255, 0, 191);
+}
+
+.result,
+.home-page {
+	padding: 2rem;
 }
 
 .select-result {
-	width: 450px;
-	height: 300px;
-	padding: 1rem;
+	width: 250px;
+	height: 180px;
 	margin: 0 auto;
-	border: 0.5px solid #004e37;
-	border-radius: 30px;
+	border: 0.5px solid #ffffff;
+	border-radius: 25px;
 	padding: 1px;
 	background-color: rgb(0, 0, 0);
 }
-.input {
-	padding: 2rem;
-}
-.result-container {
-	color: white;
-	padding: 2rem;
-}
-.img-container {
-	text-align: center;
-}
+
 .heart {
 	bottom: 30px;
 	left: 30px;
 }
-.text a {
-	color: rgb(255, 81, 0);
-	text-decoration: none;
+.result-container {
+	padding: 6rem;
 }
 .list-images {
-	padding: 6rem;
+	padding: 2rem;
+}
+.fa-paw {
+	padding: 5px;
+}
+
+@media (min-width: 420px) {
+	.select-result {
+		width: 300px;
+		height: 220px;
+	}
+	.main {
+		display: flex;
+		flex-direction: row;
+		justify-items: center;
+	}
+	.home-page-result {
+		padding-top: 4rem;
+	}
 }

@@ -64,24 +64,26 @@ class SelectOptions extends React.Component<any, IState> {
 	render(){
 		return(
 		<div className="main">
-			<div className="text">
-				<h1 className="title">Cat World</h1>
-				<FontAwesomeIcon icon={faPaw} size="3x" color="rgb(255, 123, 0)"/>
-				<a href="/Favorite-List">Your Favorite List</a>
-				<h3>Please select the breed</h3>
-			</div>
-			<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult}></Select>
 			{this.state.catObj.url.length>1 &&
-				<div className="result">
-					<img className="select-result" src={this.state.catObj.url} alt="selected-cat"></img>
-					<br/>
-					<Link className="link" to={{pathname:'/breed-info' , state:{cat:this.state.catObj}}}
-					>
-						Learn More about {this.state.catObj.breeds[0].name}
-				</Link> 
-		</div>}
+					<div className="home-page-result">
+						<img className="select-result" src={this.state.catObj.url} alt="selected-cat"></img>
+						<br/>
+						<Link className="link" to={{pathname:'/breed-info' , state:{cat:this.state.catObj}}}
+						>
+							Learn More about {this.state.catObj.breeds[0].name}
+					</Link> 
+			</div>}
+			<div className="home-page">
+				<div className="text">
+					<h1 className="title">Cat World</h1>
+					<FontAwesomeIcon icon={faPaw} size="3x" color="rgb(255, 0, 191)" className="fa-paw"/>
+					<a href="/Favorite-List">Your Favorite List</a>
+					<h3>Please select the breed</h3>
+				</div>
+				<Select className="select" name="breeds" options={this.state.BreedArray} onChange={this.displayResult}></Select>
+				</div>
 		</div>
-		)
+		)		
 	}
 }
 export default SelectOptions;

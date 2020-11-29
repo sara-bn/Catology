@@ -8,13 +8,12 @@ import Box from '@material-ui/core/Box';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { withStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
-
 const InfoTable: React.FC = (props:any) => {
 
     const breedInfo:Info = props.location.state.cat.breeds[0];
     const StyledRating = withStyles({
         iconFilled: {
-        color:  "rgb(255, 81, 0)",
+        color:  "rgb(7, 206, 56)",
         },
     })(Rating);
 

@@ -2,6 +2,9 @@ import React from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
+
 
 const FavoriteList: React.FC = () => {
     const favImages = JSON.parse(localStorage.getItem('catPhotos')!);
@@ -12,8 +15,11 @@ const FavoriteList: React.FC = () => {
     }
 
     return (
-    <div  className="result-container">
-    <h1>Your Favorite List</h1>
+    <div className="result-container">
+        <div className="text">
+            <h1>Your Favorite List</h1>
+            <FontAwesomeIcon icon={faPaw} size="3x" color="rgb(255, 0, 191)"/>
+        </div>
     <div className="list-images">
         {favImages ?
             (<GridList cellHeight={300} cols={3}>
