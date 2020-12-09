@@ -60,10 +60,10 @@ a {
 	left: 30px;
 }
 .result-container {
-	padding: 6rem;
+	padding: 1rem;
 }
 .list-images {
-	padding: 2rem;
+	padding: 1rem;
 }
 .fa-paw {
 	padding: 5px;
@@ -81,5 +81,11 @@ a {
 	}
 	.home-page-result {
 		padding-top: 4rem;
+	}
+	.result-container {
+		padding: 6rem;
+	}
+	.list-images {
+		padding: 2rem;
 	}
 }
